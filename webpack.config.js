@@ -9,7 +9,7 @@ module.exports = [
       script: './assets/scripts/index.js'
     },
     output: {
-      path: path.resolve(__dirname, 'docs'),
+      path: path.resolve(__dirname, 'docs/assets/scripts'),
       filename: '[name].js'
     },
     module: {
@@ -36,7 +36,7 @@ module.exports = [
       style: './assets/styles/style.scss'
     },
     output: {
-      path: path.resolve(__dirname, 'docs'),
+      path: path.resolve(__dirname, 'docs/assets/styles'),
       filename: '[name].css'
     },
     module: {
