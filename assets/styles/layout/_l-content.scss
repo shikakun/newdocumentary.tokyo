@@ -1,0 +1,17 @@
+.l-content {
+  $content-max-width: 124rem;
+  $content-page-margin-small: 1.6rem;
+  $content-page-margin-large: 4rem;
+
+  max-width: ($content-max-width + $content-page-margin-large * 2);
+  padding: 0 $content-page-margin-small;
+  margin: 0 auto;
+  @include media-breakpoint-up(large) {
+    padding-right: $content-page-margin-large;
+    padding-left: $content-page-margin-large;
+  }
+
+  &#{&}--full {
+    max-width: 100%;
+  }
+}

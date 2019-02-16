@@ -1,0 +1,39 @@
+/*
+
+スタイルシートの背景画像など、ディスプレイの解像度によって値を切り替えたいときに利用します。
+
+|$ratio に指定する値|意味|
+|:--------:|--------|
+|2x|解像度が 2x (4倍) のディスプレイに適用します|
+|3x|解像度が 3x (9倍) のディスプレイに適用します|
+
+```scss
+.example {
+  background-image: url(example.jpg);
+  @include retina(2x) {
+    background-image: url(example@2x.jpg);
+  }
+  @include retina(3x) {
+    background-image: url(example@3x.jpg);
+  }
+}
+```
+
+この mixin は、以下のライブラリのコードを参考にしました。
+[imulus/retinajs: JavaScript, SCSS, Sass, Less, and Stylus helpers for rendering high\-resolution image variants](https://github.com/imulus/retinajs)
+
+*/
+
+@mixin retina($ratio: 2x) {
+  @if $ratio == 2x {
+    @media screen and (-webkit-min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi) {
+      @content;
+    }
+  }
+
+  @if $ratio == 3x {
+    @media screen and (-webkit-min-device-pixel-ratio: 3), screen and (min-resolution: 288dpi) {
+      @content;
+    }
+  }
+}

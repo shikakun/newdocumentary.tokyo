@@ -1,0 +1,18 @@
+body {
+  color: $color-white;
+  background-color: $color-black;
+}
+
+a,
+button {
+  color: inherit;
+  outline: 0;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+
+  &:hover,
+  &:focus,
+  &:active:focus {
+    opacity: 0.66;
+  }
+}

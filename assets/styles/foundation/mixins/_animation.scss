@@ -1,0 +1,111 @@
+/*
+
+CSS アニメーションを指定するための mixin です。
+引数は、それぞれ以下の項目を指定できます。
+
+* `name` (例: `fade-enter`)
+  * `animation-name` プロパティの値です。用意してある @keyframes の名前を書くことでアニメーションの動きを指定します。
+* `duration` (例: `0.3s`)
+  * `animation-duration` プロパティの値です。アニメーションする秒数を指定します。
+* `delay` (例: `0`)
+  * `animation-delay` プロパティの値です。アニメーションするタイミングを指定します。指定した秒数ぶん遅れてアニメーションします。
+* `iteration-count` (例: `1`)
+  * `animation-iteration-count` プロパティの値です。アニメーションする回数を指定します。 `infinite` を指定すると、無限に繰り返します。
+
+```scss
+.example {
+  @include animation(fade-enter, 0.3s, 0, 1);
+}
+```
+
+*/
+$animation-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1);
+
+@mixin animation($name, $duration: 1s, $delay: 0, $iteration-count: 1) {
+  animation-name: $name;
+  animation-duration: $duration;
+  animation-delay: $delay;
+  animation-iteration-count: $iteration-count;
+  animation-fill-mode: both;
+}
+
+/*
+
+JavaScript のライブラリ [lazysizes](https://github.com/aFarkas/lazysizes) を使用して画像を遅延して読み込むとき、 lazysizes の機能で画像の読み込みが完了したかどうかを要素の class で知ることができます。これを利用して、読み込みが完了したときにフェードインする CSS のアニメーションをして画像を表示しています。
+
+```html
+<div class="lazyload-animation js-lazyload" data-bg="example.png">
+```
+
+*/
+.lazyload-animation {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  &.lazyloaded {
+    opacity: 1;
+  }
+}
+
+/*
+
+位置は動かずに、非表示から表示するアニメーションです。
+
+*/
+@keyframes fade-enter {
+  0%,
+  100% {
+    transition-timing-function: $animation-transition-timing-function;
+  }
+
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/*
+
+下から上へ動きながら、非表示から表示するアニメーションです。
+
+*/
+@keyframes slide-enter-up {
+  0%,
+  100% {
+    transition-timing-function: $animation-transition-timing-function;
+  }
+
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 1rem, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/*
+
+上から下へ動きながら、表示から非表示するアニメーションです。
+
+*/
+@keyframes slide-exit-down {
+  0%,
+  100% {
+    transition-timing-function: $animation-transition-timing-function;
+  }
+
+  0% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(0, 1rem, 0);
+  }
+}

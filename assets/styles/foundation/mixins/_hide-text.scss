@@ -1,0 +1,17 @@
+/*
+
+背景画像のみを表示するために html の要素のなかにあるテキストを隠すときに利用します。
+
+```scss
+.example {
+  @include hide-text;
+}
+```
+
+*/
+
+@mixin hide-text {
+  overflow: hidden;
+  text-indent: 101%;
+  white-space: nowrap;
+}

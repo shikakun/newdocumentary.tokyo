@@ -1,0 +1,69 @@
+@font-face {
+  font-family: 'DefaultSystem';
+  src: local('-apple-system'),
+       local('BlinkMacSystemFont'),
+       local('.SFNSDisplay-Regular'),
+       local('Segoe UI');
+}
+
+@font-face {
+  font-family: 'DefaultSansSerif';
+  font-weight: 400;
+  src: local('HelveticaNeue'),
+       local('Helvetica Neue'),
+       local('Helvetica'),
+       local('Arial');
+}
+@font-face {
+  font-family: 'DefaultSansSerif';
+  font-weight: 700;
+  src: local('HelveticaNeueBold'),
+       local('HelveticaNeue-Bold'),
+       local('Helvetica Neue Bold'),
+       local('HelveticaBold'),
+       local('Helvetica-Bold'),
+       local('Helvetica Bold'),
+       local('Arial Bold');
+}
+
+@font-face {
+  font-family: 'DefaultHiragino';
+  font-weight: 400;
+  src: local('HiraginoSans-W4'),
+       local('ヒラギノ角ゴ ProN W3'),
+       local('Hiragino Kaku Gothic ProN');
+}
+@font-face {
+  font-family: 'DefaultHiragino';
+  font-weight: 700;
+  src: local('HiraginoSans-W7'),
+       local('ヒラギノ角ゴ ProN W6'),
+       local('Hiragino Kaku Gothic ProN W6');
+}
+
+html {
+  font-family: 'Roboto',
+               'YakuHanJP_Noto',
+               'YakuHanJPs_Noto',
+               'Noto Sans JP',
+               'DefaultSystem',
+               'DefaultSansSerif',
+               'DefaultHiragino',
+               'メイリオ', Meiryo,
+               Osaka,
+               'MS UI Gothic',
+               'ＭＳ Ｐゴシック', 'MS PGothic',
+               sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  // ほとんどのブラウザでは 100% が 16px なので 62.5% は 10px に相当します。
+  // 1rem が 10px だと計算しやすいため、このように指定しています。
+  font-size: 62.5%;
+}
+
+body {
+  // なにも指定しないときの文字の大きさは 14px です。
+  font-size: 1.4rem;
+}

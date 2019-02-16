@@ -1,0 +1,27 @@
+/*
+
+複数行の文字を指定した行まで表示して、収まらない文字を隠します。
+以下のように指定すると、 1em の大きさの文字を行間 1.5 で 2 行分まで表示します。
+
+```scss
+.example {
+  @include line-clamp(2, 1em, 1.5);
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+```
+
+*/
+
+@mixin line-clamp($lines, $font-size, $line-height) {
+  @include line-clamp-fallback-for-non-webkit-browser($lines, $font-size, $line-height);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+}
+
+@mixin line-clamp-fallback-for-non-webkit-browser($lines, $font-size, $line-height) {
+  display: block;
+  max-height: ($lines * $font-size * $line-height);
+  overflow: hidden;
+}

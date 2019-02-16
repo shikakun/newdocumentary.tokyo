@@ -1,0 +1,21 @@
+/*
+
+テキストの量が多くて横幅をはみだすとき、この mixin を読み込んでいる要素では、末尾を三点リーダーで省略します。
+
+```scss
+.example {
+  @include ellipsis;
+  width: 300px;
+}
+```
+
+この mixin は、以下のページを参考にしました。
+[CSS String Truncation with Ellipsis · MattSnider.com](http://mattsnider.com/css-string-truncation-with-ellipsis/)
+
+*/
+
+@mixin ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

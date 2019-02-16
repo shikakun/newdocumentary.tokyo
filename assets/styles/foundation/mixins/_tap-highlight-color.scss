@@ -1,0 +1,24 @@
+/*
+
+タッチデバイスでタップしたときに表示されるハイライトの色を指定できます。
+$color になにも指定しないと透明になり、 16 進数の色コードを指定するとその色が半透明になって指定されます。
+
+```scss
+.example1 {
+  @include tap-highlight-color;
+}
+
+.example2 {
+  @include tap-highlight-color(#ff0);
+}
+```
+
+*/
+
+@mixin tap-highlight-color($color: none) {
+  @if $color == none {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  } @else {
+    -webkit-tap-highlight-color: rgba($color, 0.5);
+  }
+}

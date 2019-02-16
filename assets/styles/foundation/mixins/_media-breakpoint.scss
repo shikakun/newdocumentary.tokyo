@@ -1,0 +1,92 @@
+/*
+
+ウィンドウサイズに応じてプロパティの値を切り替えたいときに利用します。
+スマホ・タブレット・PC からのアクセスを想定して、ウィンドウの横幅の大きさによって切り替えています。
+
+|デバイス|ウィンドウの横幅|$size に指定する値|
+|:--------:|:--------:|:--------:|
+|スマホ|〜480px|small|
+|タブレット|481px〜979px|medium|
+|PC|980px〜|large|
+
+`media-breakpoint-up($size)` で囲ったスタイルは $size に指定した値以上のサイズのときに適用され、 `media-breakpoint-down($size)` で囲ったスタイルは $size に指定した値以下のサイズのときに適用されます。
+
+||スマホ (〜480px)|タブレット (481px〜979px)|PC (980px〜)|
+|--------|:--------:|:--------:|:--------:|
+|`media-breakpoint-up(small)`|✓ 適用|✓ 適用|✓ 適用|
+|`media-breakpoint-up(medium)`|-|✓ 適用|✓ 適用|
+|`media-breakpoint-up(large)`|-|-|✓ 適用|
+|`media-breakpoint-down(small)`|✓ 適用|-|-|
+|`media-breakpoint-down(medium)`|✓ 適用|✓ 適用|-|
+|`media-breakpoint-down(large)`|✓ 適用|✓ 適用|✓ 適用|
+
+スタイルを指定するときは、なるべくまずスマホサイズのスタイルを指定して、そのあとウィンドウサイズが小さい順番に上書きしていきます。これは、たいていの場合はスマホサイズのレイアウトがいちばんカラムが少なく、ウィンドウサイズが大きくなるにつれてカラム数が増えるなどレイアウトが複雑になっていくためです。
+
+```scss
+.example {
+  font-size: 1.4rem;
+  @include media-breakpoint-up(medium) {
+    font-size: 1.6rem;
+  }
+  @include media-breakpoint-up(large) {
+    font-size: 1.8rem;
+  }
+}
+```
+
+しかし、スマホと PC でレイアウトがまったく異なるときなど、値を上書きするとソースコードが複雑になってしまう場合は、いちばんわかりやすい書き方で指定してかまいません。
+
+```scss
+.example {
+  @include media-breakpoint-down(small) {
+    position: fixed;
+    background: red;
+  }
+  @include media-breakpoint-up(medium) {
+    display: flex;
+    background: blue;
+  }
+}
+```
+
+ほとんどありませんが、もしタブレットのみ指定したいスタイルがある場合は、以下のように mixin を組み合わせて使用することもできます。
+
+```scss
+.example {
+  @include media-breakpoint-up(medium) {
+    @include media-breakpoint-down(medium) {
+      @include ellipsis;
+    }
+  }
+}
+```
+
+*/
+
+@mixin media-breakpoint-up($size: medium) {
+  @if $size == medium {
+    @media screen and (min-width: $breakpoint-medium) {
+      @content;
+    }
+  }
+
+  @if $size == large {
+    @media screen and (min-width: $breakpoint-large) {
+      @content;
+    }
+  }
+}
+
+@mixin media-breakpoint-down($size: small) {
+  @if $size == small {
+    @media screen and (max-width: ($breakpoint-medium - 1px)) {
+      @content;
+    }
+  }
+
+  @if $size == medium {
+    @media screen and (max-width: ($breakpoint-large - 1px)) {
+      @content;
+    }
+  }
+}
