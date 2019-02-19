@@ -1,4 +1,17 @@
 @font-face {
+  font-family: 'Sporting Grotesque_Regular';
+  src: url('../fonts/Sporting_Grotesque-Regular_web.eot');
+  src: url('../fonts/Sporting_Grotesque-Regular_web.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/Sporting_Grotesque-Regular_web.woff') format('woff'),
+       url('../fonts/Sporting_Grotesque-Regular_web.woff2') format('woff2'),
+       url('../fonts/Sporting_Grotesque-Regular_web.ttf') format('truetype'),
+       url('../fonts/Sporting_Grotesque-Regular_web.svg#svgFontName') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
   font-family: 'DefaultSystem';
   src: local('-apple-system'),
        local('BlinkMacSystemFont'),
@@ -7,7 +20,7 @@
 }
 
 html {
-  font-family: 'YakuHanJPs_Noto',
+  font-family: 'YakuHanJP',
                'dnp-shuei-gothic-gin-std',
                'Yu Gothic Medium', '游ゴシック Medium',
                'YuGothic', '游ゴシック体',
@@ -27,4 +40,11 @@ html {
 body {
   // なにも指定しないときの文字の大きさは 14px です。
   font-size: 1.4rem;
+}
+
+@mixin numeric-style {
+  font-family: 'Sporting Grotesque_Regular', 'dnp-shuei-gothic-gin-std', 'DefaultSystem', sans-serif;
+  letter-spacing: -0.0125em;
+  transform: scaleX(1.1);
+  transform-origin: top left;
 }

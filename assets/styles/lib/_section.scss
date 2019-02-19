@@ -1,8 +1,15 @@
 .section {
+  $this: &;
+
+  & + & {
+    margin-top: 8rem;
+  }
+
   &__content {
     padding: 1.6rem;
     margin: 0 -1.6rem;
-    border: 1.6rem solid $color-green;
+    border-width: 1.6rem;
+    border-style: solid;
     @include media-breakpoint-up(medium) {
       margin-right: 0;
       margin-left: 0;
@@ -11,6 +18,14 @@
       padding: 4rem;
       border-width: 4rem;
     }
+  }
+
+  &#{&}--artscyd3331 #{$this}__content {
+    border-color: $color-green;
+  }
+
+  &#{&}--athenee #{$this}__content {
+    border-color: $color-yellow;
   }
 
   &__header {
@@ -23,6 +38,7 @@
 
   &__title {
     text-align: center;
+    line-height: 1;
 
     > span {
       position: relative;
@@ -46,12 +62,25 @@
         left: 0;
         width: 100%;
         height: 0.8rem;
-        background-color: $color-green;
         z-index: 1;
         @include media-breakpoint-up(large) {
           height: 1.2rem;
         }
       }
     }
+
+    > br {
+      @include media-breakpoint-up(medium) {
+        display: none;
+      }
+    }
+  }
+
+  &#{&}--artscyd3331 #{$this}__title > span::after {
+    background-color: $color-green;
+  }
+
+  &#{&}--athenee #{$this}__title > span::after {
+    background-color: $color-yellow;
   }
 }

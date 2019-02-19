@@ -41,4 +41,78 @@
       }
     }
   }
+
+  &__nav {
+    margin-top: 3.2rem;
+
+    > ul {
+      @include media-breakpoint-up(medium) {
+        display: flex;
+        justify-content: center;
+      }
+      @include media-breakpoint-up(large) {
+        width: (100% / 3 * 2);
+        margin: 0 auto;
+      }
+
+      > li {
+        @include media-breakpoint-up(medium) {
+          width: (100% / 2);
+        }
+
+        + li {
+          margin-top: 1.6rem;
+          @include media-breakpoint-up(medium) {
+            margin-top: 0;
+          }
+        }
+
+        > a {
+          display: block;
+
+          > em {
+            position: relative;
+            display: inline-block;
+            white-space: nowrap;
+
+            > b {
+              position: relative;
+              font-size: 1.6em;
+              z-index: 2;
+              @include media-breakpoint-up(large) {
+                font-size: 2.4rem;
+              }
+            }
+
+            &::after {
+              content: '';
+              display: block;
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 100%;
+              height: 0.8rem;
+              z-index: 1;
+              @include media-breakpoint-up(large) {
+                height: 1.2rem;
+              }
+            }
+
+            &.is-artscyd3331::after {
+              background-color: $color-green;
+            }
+
+            &.is-athenee::after {
+              background-color: $color-yellow;
+            }
+          }
+
+          > span {
+            display: block;
+            margin-top: 0.8rem;
+          }
+        }
+      }
+    }
+  }
 }

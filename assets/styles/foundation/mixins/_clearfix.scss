@@ -1,0 +1,23 @@
+/*
+
+子要素がすべて float: left または right が指定されている親要素が、子要素の高さを認識できなくなってぺしゃんこに表示されてしまう問題に対応するときに指定します。
+
+```scss
+.example {
+  @include clearfix;
+
+  &__child {
+    float: left;
+  }
+}
+```
+
+*/
+
+@mixin clearfix {
+  &::after {
+    clear: both;
+    content: '';
+    display: block;
+  }
+}

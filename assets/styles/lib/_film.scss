@@ -1,0 +1,72 @@
+.film {
+  @include media-breakpoint-up(medium) {
+    display: flex;
+    align-items: center;
+  }
+
+  & + & {
+    margin-top: 1.6rem;
+  }
+
+  &__media {
+    margin-bottom: 0.8rem;
+    @include media-breakpoint-up(medium) {
+      width: 40%;
+      margin-bottom: 0;
+      margin-left: 1.6rem;
+      order: 2;
+    }
+
+    > img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  &__body {
+    @include media-breakpoint-up(medium) {
+      flex: 1;
+      min-width: 0;
+      order: 1;
+    }
+  }
+
+  &__title {
+    color: $color-orange;
+
+    & + & {
+      margin-top: 0.8rem;
+    }
+
+    > em {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 1.8rem;
+      @include media-breakpoint-up(large) {
+        font-size: 2.1rem;
+      }
+    }
+
+    > span {
+      display: inline-block;
+      white-space: nowrap;
+      vertical-align: middle;
+      font-size: 1.2rem;
+      line-height: 1.8rem;
+      @include media-breakpoint-up(large) {
+        line-height: 2.1rem;
+      }
+    }
+  }
+
+  &__description {
+    margin-top: 0.8rem;
+    line-height: 1.25;
+
+    > i {
+      display: inline-block;
+      margin: 0 0.125em;
+      color: $color-orange;
+    }
+  }
+}

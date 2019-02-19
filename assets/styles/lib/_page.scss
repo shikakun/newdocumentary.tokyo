@@ -16,4 +16,18 @@
   &__content {
     position: relative;
   }
+
+  &__header {
+    margin-top: 1.6rem;
+    @include media-breakpoint-up(large) {
+      margin-top: 3.2rem;
+    }
+  }
+
+  &__main {
+    margin-top: 3.2rem;
+    @include media-breakpoint-up(large) {
+      margin-top: 6.4rem;
+    }
+  }
 }
