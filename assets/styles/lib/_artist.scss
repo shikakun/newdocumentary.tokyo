@@ -1,0 +1,40 @@
+.artist {
+  &__header {
+    margin-bottom: 1.6rem;
+  }
+
+  &__title {
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 1.8rem;
+    color: $color-white;
+    background-color: $color-orange;
+    @include media-breakpoint-up(large) {
+      font-size: 2.1rem;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: (0 - 1.6rem / 4) (0 - 1.6rem / 2);
+
+    > li {
+      padding: (1.6rem / 4) (1.6rem / 2);
+      font-size: 1.6rem;
+      @include media-breakpoint-up(large) {
+        font-size: 1.8rem;
+      }
+
+      > span {
+        display: inline-block;
+        white-space: nowrap;
+        margin-left: 0.25em;
+        font-size: 1.2rem;
+        @include media-breakpoint-up(large) {
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+}

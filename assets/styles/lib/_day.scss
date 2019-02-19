@@ -1,0 +1,33 @@
+.day {
+  @include media-breakpoint-up(large) {
+    display: flex;
+  }
+
+  &__header {
+    margin-bottom: 3.2rem;
+    @include media-breakpoint-up(large) {
+      width: 25%;
+      margin-bottom: 0;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    font-size: 1.8rem;
+    @include media-breakpoint-up(large) {
+      text-align: justify;
+      font-size: 2.4rem;
+    }
+  }
+
+  &__body {
+    @include media-breakpoint-up(large) {
+      flex: 1;
+      min-width: 0;
+    }
+  }
+
+  &__artist {
+    margin-bottom: 3.2rem;
+  }
+}
