@@ -1,18 +1,52 @@
 .section {
   $this: &;
 
+  &::before,
+  &::after {
+    content: '';
+    position: sticky;
+    display: block;
+    width: 100%;
+    height: 1.6rem;
+    z-index: -1;
+    @include media-breakpoint-up(medium) {
+      display: none;
+    }
+  }
+
+  &::before {
+    top: 0;
+  }
+
+  &::after {
+    bottom: 0;
+  }
+
+  &#{&}--artscyd3331::before,
+  &#{&}--artscyd3331::after {
+    background-color: $color-green;
+  }
+
+  &#{&}--athenee::before,
+  &#{&}--athenee::after {
+    background-color: $color-yellow;
+  }
+
   & + & {
-    margin-top: 8rem;
+    @include media-breakpoint-up(large) {
+      margin-top: 8rem;
+    }
   }
 
   &__content {
     padding: 1.6rem;
     margin: 0 -1.6rem;
-    border-width: 1.6rem;
+    border-width: 0 1.6rem;
     border-style: solid;
     @include media-breakpoint-up(medium) {
       margin-right: 0;
       margin-left: 0;
+      border-width: 1.6rem;
     }
     @include media-breakpoint-up(large) {
       padding: 4rem;

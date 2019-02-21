@@ -46,23 +46,21 @@
     margin-top: 3.2rem;
 
     > ul {
-      @include media-breakpoint-up(medium) {
+      @include media-breakpoint-up(large) {
         display: flex;
         justify-content: center;
-      }
-      @include media-breakpoint-up(large) {
         width: (100% / 3 * 2);
         margin: 0 auto;
       }
 
       > li {
-        @include media-breakpoint-up(medium) {
+        @include media-breakpoint-up(large) {
           width: (100% / 2);
         }
 
         + li {
           margin-top: 1.6rem;
-          @include media-breakpoint-up(medium) {
+          @include media-breakpoint-up(large) {
             margin-top: 0;
           }
         }
