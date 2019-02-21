@@ -18,16 +18,52 @@
   }
 
   &__header {
-    margin-top: 1.6rem;
     @include media-breakpoint-up(large) {
       margin-top: 3.2rem;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      position: sticky;
+      width: 100%;
+      height: 1.6rem;
+      background-color: $color-orange;
+      z-index: -1;
+      @include media-breakpoint-up(medium) {
+        display: none;
+      }
+    }
+
+    &::before {
+      top: 0;
+    }
+
+    &::after {
+      bottom: 0;
     }
   }
 
   &__main {
-    margin-top: 3.2rem;
     @include media-breakpoint-up(large) {
       margin-top: 6.4rem;
+    }
+  }
+
+  &__footer {
+    &::before {
+      content: '';
+      display: block;
+      position: sticky;
+      top: 0;
+      width: 100%;
+      height: 1.6rem;
+      background-color: $color-orange;
+      z-index: -1;
+      @include media-breakpoint-up(medium) {
+        display: none;
+      }
     }
   }
 }

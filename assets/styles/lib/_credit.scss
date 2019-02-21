@@ -1,0 +1,37 @@
+.credit {
+  @include media-breakpoint-up(medium) {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 1.6rem;
+    margin: -1.6rem;
+  }
+  @include media-breakpoint-up(large) {
+    border-spacing: 3.2rem;
+    margin: -3.2rem;
+  }
+
+  > dl {
+    + dl {
+      @include media-breakpoint-down(small) {
+        margin-top: 1.6rem;
+      }
+    }
+
+    @include media-breakpoint-up(medium) {
+      display: table-row;
+    }
+
+    > dt {
+      color: $color-orange;
+      @include media-breakpoint-up(medium) {
+        display: table-cell;
+      }
+    }
+
+    > dd {
+      @include media-breakpoint-up(medium) {
+        display: table-cell;
+      }
+    }
+  }
+}

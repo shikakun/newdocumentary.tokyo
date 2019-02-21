@@ -1,0 +1,31 @@
+.footer {
+  padding-bottom: 1.6rem;
+  @include media-breakpoint-up(large) {
+    padding-bottom: (8rem + 4rem);
+    margin-top: 8rem;
+  }
+
+  &__content {
+    padding: 1.6rem;
+    @include media-breakpoint-up(large) {
+      display: flex;
+      padding: 0
+    }
+  }
+
+  &__note {
+    @include media-breakpoint-up(large) {
+      width: (100% / 2);
+      padding-right: 2rem;
+    }
+  }
+
+  &__credit {
+    margin-top: 3.2rem;
+    @include media-breakpoint-up(large) {
+      margin-top: 0;
+      width: (100% / 2);
+      padding-left: 2rem;
+    }
+  }
+}

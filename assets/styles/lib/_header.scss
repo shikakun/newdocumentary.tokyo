@@ -1,4 +1,6 @@
 .header {
+  $this: &;
+
   padding: 3.2rem 0;
   text-align: center;
   @include media-breakpoint-up(medium) {
@@ -112,5 +114,42 @@
         }
       }
     }
+  }
+
+  &__note {
+    margin-top: 6.4rem;
+    font-size: 1.6rem;
+    @include media-breakpoint-up(large) {
+      margin-top: 8rem;
+      font-size: 2.1rem;
+    }
+
+    > br {
+      @include media-breakpoint-up(large) {
+        display: none;
+      }
+    }
+
+    > i {
+      display: inline-block;
+      margin: 0 0.25em;
+      color: $color-orange;
+    }
+  }
+
+  &__presentedby {
+    display: inline-block;
+    white-space: nowrap;
+
+    > em {
+      display: inline-block;
+      white-space: nowrap;
+      margin-left: 0.5em;
+    }
+  }
+
+  &__free {
+    display: inline-block;
+    white-space: nowrap;
   }
 }
