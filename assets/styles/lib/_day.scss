@@ -3,8 +3,15 @@
     display: flex;
   }
 
+  & + & {
+    margin-top: 8rem;
+  }
+
   &__header {
-    margin-bottom: 3.2rem;
+    @include media-breakpoint-down(medium) {
+      position: sticky;
+      top: 0;
+    }
     @include media-breakpoint-up(large) {
       width: 25%;
       margin-bottom: 0;
@@ -21,9 +28,11 @@
   }
 
   &__body {
+    margin-top: 3.2rem;
     @include media-breakpoint-up(large) {
       flex: 1;
       min-width: 0;
+      margin-top: 0;
     }
   }
 
