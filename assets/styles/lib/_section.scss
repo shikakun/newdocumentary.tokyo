@@ -117,4 +117,11 @@
   &#{&}--athenee #{$this}__title > span::after {
     background-color: $color-yellow;
   }
+
+  &__access {
+    margin-top: 3.2rem;
+    @include media-breakpoint-up(large) {
+      margin-top: 4rem;
+    }
+  }
 }
