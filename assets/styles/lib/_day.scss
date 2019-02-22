@@ -11,6 +11,7 @@
     @include media-breakpoint-down(medium) {
       position: sticky;
       top: 1.6rem;
+      z-index: 100;
     }
     @include media-breakpoint-up(large) {
       width: 25%;
