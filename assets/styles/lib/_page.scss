@@ -22,11 +22,11 @@
       margin-top: 3.2rem;
     }
 
-    &::before,
     &::after {
       content: '';
       display: block;
       position: sticky;
+      bottom: 0;
       width: 100%;
       height: 1.6rem;
       background-color: $color-orange;
@@ -34,14 +34,6 @@
       @include media-breakpoint-up(medium) {
         display: none;
       }
-    }
-
-    &::before {
-      top: 0;
-    }
-
-    &::after {
-      bottom: 0;
     }
   }
 

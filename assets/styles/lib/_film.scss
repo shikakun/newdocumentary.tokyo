@@ -21,6 +21,11 @@
       display: block;
       width: 100%;
     }
+
+    &#{&}--vertical > img {
+      width: 66.6%;
+      margin: 0 auto;
+    }
   }
 
   &__body {

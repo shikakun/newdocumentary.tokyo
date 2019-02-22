@@ -10,7 +10,7 @@
   &__header {
     @include media-breakpoint-down(medium) {
       position: sticky;
-      top: 0;
+      top: 1.6rem;
     }
     @include media-breakpoint-up(large) {
       width: 25%;
@@ -20,9 +20,11 @@
 
   &__title {
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 2.4rem;
     @include media-breakpoint-up(large) {
-      text-align: justify;
+      position: sticky;
+      top: 8rem;
+      text-align: left;
       font-size: 2.4rem;
     }
   }

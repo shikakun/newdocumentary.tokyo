@@ -20,11 +20,17 @@
       position: absolute;
       display: block;
       top: 50%;
-      left: 0;
-      width: 100%;
+      right: 0;
+      width: 55%;
       height: $border-width;
-      margin-top: (0 - $border-width);
+      margin-top: (0 - $border-width / 2);
       z-index: 1;
+      @include media-breakpoint-up(medium) {
+        width: 65%;
+      }
+      @include media-breakpoint-up(large) {
+        width: 75%;
+      }
     }
 
     > span {
@@ -35,7 +41,6 @@
       padding-right: 1em;
       font-size: 1.4rem;
       line-height: 1;
-      background-color: $color-white;
       z-index: 2;
       @include media-breakpoint-up(large) {
         font-size: 1.6rem;

@@ -117,10 +117,9 @@
   }
 
   &__note {
-    margin-top: 6.4rem;
+    margin-top: 3.2rem;
     font-size: 1.6rem;
     @include media-breakpoint-up(large) {
-      margin-top: 8rem;
       font-size: 2.1rem;
     }
 
