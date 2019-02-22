@@ -15,7 +15,9 @@
     background-size: contain;
   }
 
-  &:hover {
+  &:hover,
+  &:focus,
+  &:active:focus {
     opacity: 1 !important;
   }
 }
