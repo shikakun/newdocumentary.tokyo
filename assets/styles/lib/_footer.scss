@@ -28,4 +28,34 @@
       padding-left: 2rem;
     }
   }
+
+  &__documentary {
+    margin-top: 3.2rem;
+    text-align: center;
+    @include media-breakpoint-up(large) {
+      margin-top: 4rem;
+    }
+
+    > a {
+      position: relative;
+      display: inline-block;
+      white-space: nowrap;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 25%;
+        background-color: $color-blueLight;
+        z-index: 1;
+      }
+
+      > span {
+        position: relative;
+        z-index: 2;
+      }
+    }
+  }
 }
