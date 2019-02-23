@@ -1,6 +1,8 @@
 import lazysizes from 'lazysizes';
-import {lazyload} from './lib/lazyload';
+import {accordion} from './lib/accordion';
 import {anchorLink} from './lib/anchor_link';
+import {lazyload} from './lib/lazyload';
 
-lazyload();
+accordion();
 anchorLink();
+lazyload();

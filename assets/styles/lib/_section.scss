@@ -22,6 +22,11 @@
     bottom: 0;
   }
 
+  &#{&}--newdocumentary::before,
+  &#{&}--newdocumentary::after {
+    background-color: $color-blueLight;
+  }
+
   &#{&}--artscyd3331::before,
   &#{&}--artscyd3331::after {
     background-color: $color-green;
@@ -52,6 +57,10 @@
       padding: 4rem;
       border-width: 4rem;
     }
+  }
+
+  &#{&}--newdocumentary #{$this}__content {
+    border-color: $color-blueLight;
   }
 
   &#{&}--artscyd3331 #{$this}__content {
@@ -110,12 +119,113 @@
     }
   }
 
+  &#{&}--newdocumentary #{$this}__title > span::after {
+    background-color: $color-blueLight;
+  }
+
   &#{&}--artscyd3331 #{$this}__title > span::after {
     background-color: $color-green;
   }
 
   &#{&}--athenee #{$this}__title > span::after {
     background-color: $color-yellow;
+  }
+
+  &__description {
+    div {
+      + div {
+        margin-top: 3.2rem;
+        @include media-breakpoint-up(large) {
+          margin-top: 4rem;
+        }
+      }
+
+      &.is-accordion-target {
+        max-height: 0;
+        overflow-y: hidden;
+        transition: max-height 10s ease;
+
+        &.is-show {
+          max-height: 9999rem;
+        }
+      }
+
+      br {
+        @include media-breakpoint-up(large) {
+          display: none;
+        }
+      }
+
+      h3 {
+        margin-bottom: 1.6rem;
+        text-align: center;
+        line-height: 1;
+
+        &.is-accordion-opener {
+          padding-bottom: 3.2rem;
+          margin-bottom: 0;
+          background-image: url(../images/icon_chevron_bottom.svg);
+          background-size: auto 2.4rem;
+          background-repeat: no-repeat;
+          background-position: center bottom;
+          transition: opacity 0.3s ease;
+          cursor: pointer;
+
+          &:hover {
+            opacity: 0.66;
+          }
+        }
+
+        > span {
+          position: relative;
+          display: inline-block;
+          white-space: nowrap;
+
+          > b {
+            position: relative;
+            font-size: 1.8rem;
+            z-index: 2;
+            @include media-breakpoint-up(large) {
+              font-size: 2.1rem;
+            }
+          }
+
+          &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0.4rem;
+            background-color: $color-blueLight;
+            z-index: 1;
+            @include media-breakpoint-up(large) {
+              height: 0.6rem;
+            }
+          }
+        }
+
+        > br {
+          @include media-breakpoint-up(medium) {
+            display: none;
+          }
+        }
+      }
+
+      p {
+        text-align: justify;
+        font-size: 1.4rem;
+        line-height: 1.5;
+        @include media-breakpoint-up(large) {
+          font-size: 1.6rem;
+        }
+
+        + p {
+          margin-top: 1em;
+        }
+      }
+    }
   }
 
   &__access {
