@@ -22,9 +22,18 @@
     }
 
     > dt {
-      color: $color-orange;
       @include media-breakpoint-up(medium) {
         display: table-cell;
+      }
+      @include media-breakpoint-up(large) {
+        text-align: right;
+      }
+
+      > span {
+        display: inline-block;
+        white-space: nowrap;
+        color: $color-white;
+        background-color: $color-orange;
       }
     }
 

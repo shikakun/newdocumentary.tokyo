@@ -89,4 +89,34 @@
   &__profile {
     margin-top: 1.6rem;
   }
+
+  &__note {
+    margin-top: 3.2rem;
+    background-color: $color-yellow;
+
+    > p {
+      text-align: justify;
+      font-size: 1.6rem;
+      line-height: 1.5;
+      @include media-breakpoint-up(large) {
+        font-size: 1.8rem;
+      }
+
+      + p {
+        margin-top: 1em;
+        font-size: 1.4rem;
+      }
+
+      > span {
+        display: inline-block;
+        white-space: nowrap;
+      }
+
+      > br {
+        @include media-breakpoint-down(medium) {
+          display: none;
+        }
+      }
+    }
+  }
 }
