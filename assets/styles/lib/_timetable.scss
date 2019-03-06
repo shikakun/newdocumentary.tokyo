@@ -62,6 +62,12 @@
     @include media-breakpoint-up(large) {
       font-size: 1.6rem;
     }
+
+    &#{&}--okotowari {
+      @include media-breakpoint-up(large) {
+        font-size: 1.4rem;
+      }
+    }
   }
 
   &__title {
